@@ -1,123 +1,60 @@
+<!-- GifTastic - index.html -->
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="US">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+
     <title>GifTastic</title>
-    <meta charset="utf-8" />
-    <style type="text/css">
-      button,
-      div,
-      form,
-      input {
-        margin: 10px;
-      }
-    </style>
+    <!-- --------------------------------------------------------- -->
+
+    <!-- FavIcon 
+    <link rel="icon" type="image/png" href="assets/images/trivia_favicon.png" /> -->
+    <!-- Proper rendering for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Reset Style CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton|Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- JQuery -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
   </head>
 
   <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript"> 
-
-var topics = ["Toronto", "Montreal", "Vancouver", "Calgary", "Edmonton", "Halifax", "Regina", "Winnipeg", "Saskatoon", "Sudbury", "Windsor", "Ottawa", "Quebec City"];
-
-var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=20");
-xhr.done(function(data) { console.log("success got data", data); });
-
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-        console.log(response);
-     });
-
-
-    <div class="container">
-      <h1>Movie Search</h1>
-
-      <!-- Rendered Buttons will get Dumped Here  -->
-      <div id="buttons-view"></div>
-
-      <form id="movie-form">
-        <label for="movie-input">Add a Movie, Yo!</label>
-        <input type="text" id="movie-input" /><br />
-
-        <!-- Button triggers new movie to be added -->
-        <input id="add-movie" type="submit" value="Add a Movie, Yo!" />
-      </form>
-
-      <!-- Movies will Get Dumped Here -->
-      <div id="movies-view"></div>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script type="text/javascript">
-        // Initial array of movies
-        var movies = [
-          "The Matrix",
-          "The Notebook",
-          "Mr. Nobody",
-          "The Lion King"
-        ];
-
-        // Function for dumping the JSON content for each button into the div
-        function displayMovieInfo() {
-          var movie = $(this).attr("data-name");
-          var queryURL =
-            "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-
-          $.ajax({
-            url: queryURL,
-            method: "GET"
-          }).then(function(response) {
-            $("#movies-view").text(JSON.stringify(response));
-          });
-        }
-
-        // Function for displaying movie data
-        function renderButtons() {
-          // Deleting the buttons prior to adding new movies
-          // (this is necessary otherwise you will have repeat buttons)
-          $("#buttons-view").empty();
-
-          // Looping through the array of movies
-          for (var i = 0; i < movies.length; i++) {
-            // Then dynamically generating buttons for each movie in the array
-            // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-            var a = $("<button>");
-            // Adding a class of movie to our button
-            a.addClass("movie");
-            // Adding a data-attribute
-            a.attr("data-name", movies[i]);
-            // Providing the initial button text
-            a.text(movies[i]);
-            // Adding the button to the buttons-view div
-            $("#buttons-view").append(a);
-          }
-        }
-
-        // This function handles events where one button is clicked
-        $("#add-movie").on("click", function(event) {
-          event.preventDefault();
-
-          // This line grabs the input from the textbox
-          var movie = $("#movie-input")
-            .val()
-            .trim();
-
-          // Adding the movie from the textbox to our array
-          movies.push(movie);
-          console.log(movies);
-
-          // Calling renderButtons which handles the processing of our movie array
-          renderButtons();
-        });
-
-        // Function for displaying the movie info
-        // Using $(document).on instead of $(".movie").on to add event listeners to dynamically generated elements
-        $(document).on("click", ".movie", displayMovieInfo);
-
-        // Calling the renderButtons function to display the initial buttons
-        renderButtons();
-      </script>
+    <!-- Jumbotron Title -->
+    <div class="jumbotron">
+      <h1
+        class="text-center trivia-title"
+        style="font-family: 'Merriweather', serif; font-size: 3.5rem;"
+      >
+        GifTastic
+      </h1>
     </div>
+    <div class="container-fluid m-auto p-auto"></div>
+
+    <div class="row justify-content-md-center">
+      <div class="d-inline p-2 buttonArea"></div>
+    </div>
+    <!--  Here 1 -->
+    <script src="assets/javascript/app.js"></script>
   </body>
 </html>
