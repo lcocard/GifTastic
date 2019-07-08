@@ -37,6 +37,7 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
+    <script src="assets/javascript/app.js"></script>
   </head>
 
   <body>
@@ -54,7 +55,23 @@
     <div class="row justify-content-md-center">
       <div class="d-inline p-2 buttonArea"></div>
     </div>
+    <div class="row">
+      <div
+        class="col-12.col-sm-12.col-md-12.col-lg-12.col-xl-12 giphyArea"
+      ></div>
+      <div class="col-3.col-sm-3.col-md-3.col-lg-3.col-xl-3 userGiphy">
+        <form id="user-topics-form">
+          <label for="topics-input">Add a City, Yo!</label>
+          <input type="text" id="topics-input" />
+          <br />
+
+          <!-- Button triggers new movie to be added -->
+          <button type="button" class="btn btn-success btn-topics-input">
+            Add a City, Yo!
+          </button>
+        </form>
+      </div>
+    </div>
     <!--  Here 1 -->
-    <script src="assets/javascript/app.js"></script>
   </body>
 </html>
