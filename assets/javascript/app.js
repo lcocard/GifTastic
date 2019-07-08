@@ -2,7 +2,6 @@
 
 
 var topics = [
-    "Guitar",
     "Toronto",
     "Montreal",
     "Vancouver",
@@ -69,14 +68,49 @@ $(document).ready(function () {
     $(".buttonArea").on("click", ".btn", function (event) {
         var this_city = $(this).val();
         console.log("this_city = " + this_city);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this_city + "&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this_city + "&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10&rating=pg";
 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).done(function (response) {
             console.log("success got data", response);
+            var gifs = response.data;
+            console.log("gifs.length = " + gifs.length);
+            // Generating a div for each gif and adding rating, still and animated attributes
+            for (var i = 0; i < gifs.length; i++) {
+                var $gifDiv = $("<div>");
+                // Get the gif rating value and store it in a variable
+                gifRating = gifs[i].rating;
+                console.log("gif rating = " + gifRating)
+
+                // Create a var to hold a <p> tag to keep the rating for the gif results,
+                // Then give it an ID in the form gifs[i] + i
+                // Then set the <p> tag as the value of this 
+                $gifRatingItem = $("<p>");
+                //$gifRatingItem.attr("ID", gifs[i] + i);
+                $gifRatingItem.text("Rating = " + gifRating);
+
+                // Create a variable to hold an <img> for the gifs resulted from the search
+                // Add src, data-still, data-animate and data-state attributes and "gifs" class
+                // Add div to giphyArea at the top (prepend)
+                var $gifIMG = $("<img>");
+                $gifIMG.attr("src", gifs[i].images.fixed_height_still.url);
+                $gifIMG.attr("data-still", gifs[i].images.fixed_height_still.url);
+                $gifIMG.attr("data-animate", gifs[i].images.fixed_height.url);
+                $gifIMG.attr("data-state", "still");
+                $gifIMG.addClass("gifs");
+                $gifIMG.append($gifRatingItem);
+                $(".giphyArea").prepend($gifIMG);
+
+
+
+
+
+
+            }
         });
+
     });
 
     button_create();
