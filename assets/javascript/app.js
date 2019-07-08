@@ -2,6 +2,7 @@
 
 
 var topics = [
+    "Guitar",
     "Toronto",
     "Montreal",
     "Vancouver",
@@ -52,7 +53,7 @@ $(document).ready(function () {
         }
     }
 
-    // This function handles events where a  button is clicked
+    // Add topics to the array on the event of a user topic input and click on the submit button
     $(".btn-topics-input").on("click", function (event) {
         event.preventDefault();
         // This line grabs the input from the textbox
@@ -61,6 +62,25 @@ $(document).ready(function () {
         // Adding city from the textbox to our array
         topics.push(city);
         button_create();
+    });
+
+    // Display 10 still images from Giphy for each click on a button from the buttonArea 
+
+    $(".buttonArea").on("click", ".btn", function (event) {
+        var $this_city = $(this).val();
+        var queryURL = $.get(
+            "https://api.giphy.com/v1/gifs/search?q=$this_city&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10"
+        );
+        queryURL.done(function (data) {
+            console.log("success got data", data);
+        });
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) {
+            console.log(response);
+        });
     });
 
     button_create();
