@@ -14,19 +14,6 @@ var topics = [
     "Sudbury",
     "Windsor",
     "Ottawa",
-    "Quebec City",
-    "Toronto",
-    "Montreal",
-    "Vancouver",
-    "Calgary",
-    "Edmonton",
-    "Halifax",
-    "Regina",
-    "Winnipeg",
-    "Saskatoon",
-    "Sudbury",
-    "Windsor",
-    "Ottawa",
     "Quebec City"
 ];
 var b_topics = "";
@@ -38,6 +25,7 @@ var new_topics = "";
 /* *********************** Generate the buttons **************************** */
 $(document).ready(function () {
 
+    // Function used to generate buttons for the topic list
     function button_create() {
         $(".buttonArea").empty();
         for (var i = 0; i < topics.length; i++) {
@@ -61,11 +49,6 @@ $(document).ready(function () {
             $buttonsRow.attr("value", topics[i])
             $buttonsRow.append($topicsItem);
             $(".buttonArea").append($buttonsRow);
-
-            //var buttonsCol = $("<div>");
-            //buttonsCol.addClass("col-md-auto");
-            //buttonsCol = buttonsCol.append(topicsItem);
-            //$("#topics_button_row" + i).append(buttonsCol);
         }
     }
 
@@ -75,7 +58,7 @@ $(document).ready(function () {
         // This line grabs the input from the textbox
         var city = $("#topics-input").val().trim();
 
-        // Adding movie from the textbox to our array
+        // Adding city from the textbox to our array
         topics.push(city);
         button_create();
     });
