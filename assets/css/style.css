@@ -33,5 +33,9 @@ h1 {
 }
 
 #topics-input {
-  margin-left: 30px;
+  margin-top: 4px;
+}
+
+.btn-topics-input {
+  margin-top: 8px;
 }

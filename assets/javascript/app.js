@@ -87,7 +87,7 @@ $(document).ready(function () {
                 // Create a var to hold a <p> tag to keep the rating for the gif results,
                 // Then give it an ID in the form gifs[i] + i
                 // Then set the <p> tag as the value of this 
-                $gifRatingItem = $("<p>");
+                $gifRatingItem = $("<div>");
                 //$gifRatingItem.attr("ID", gifs[i] + i);
                 $gifRatingItem.text("Rating = " + gifRating);
 
