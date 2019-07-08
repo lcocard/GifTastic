@@ -69,7 +69,7 @@ $(document).ready(function () {
     $(".buttonArea").on("click", ".btn", function (event) {
         var $this_city = $(this).val();
         var queryURL = $.get(
-            "https://api.giphy.com/v1/gifs/search?q=$this_city&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10"
+            "http://api.giphy.com/v1/gifs/search?q=' + $this_city + '&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10"
         );
         queryURL.done(function (data) {
             console.log("success got data", data);
