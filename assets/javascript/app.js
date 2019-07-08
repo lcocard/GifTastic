@@ -87,8 +87,8 @@ $(document).ready(function () {
                 // Create a var to hold a <p> tag to keep the rating for the gif results,
                 // Then give it an ID in the form gifs[i] + i
                 // Then set the <p> tag as the value of this 
-                $gifRatingItem = $("<div>");
-                //$gifRatingItem.attr("ID", gifs[i] + i);
+                $gifRatingItem = $("<p>");
+                $gifRatingItem.addClass("gifsRating");
                 $gifRatingItem.text("Rating = " + gifRating);
 
                 // Create a variable to hold an <img> for the gifs resulted from the search
@@ -100,13 +100,24 @@ $(document).ready(function () {
                 $gifIMG.attr("data-animate", gifs[i].images.fixed_height.url);
                 $gifIMG.attr("data-state", "still");
                 $gifIMG.addClass("gifs");
-                $gifIMG.append($gifRatingItem);
-                $(".giphyArea").prepend($gifIMG);
+                $gifDiv = $gifDiv.append($gifIMG);
+                $gifDiv.prepend($gifRatingItem);
+                $(".giphyArea").prepend($gifDiv);
 
+                // Toggle state animated/still images
 
+                $(".gifs").on("click", function (event) {
+                    //event.preventDefault();
+                    var gifsState = $(this).attr("data-state");
+                    if (gifsState === "still") {
+                        $(this).attr("src", $(this).attr("data-animate"));
+                        $(this).attr("data-state", "animate");
+                    } else {
+                        $(this).attr("src", $(this).attr("data-still"));
+                        $(this).attr("data-state", "still");
+                    }
 
-
-
+                });
 
             }
         });
