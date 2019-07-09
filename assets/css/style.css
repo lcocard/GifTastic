@@ -21,16 +21,10 @@ p {
 .gifsRating {
   margin-bottom: 4px;
   color: hsl(240, 3%, 6%);
-  text-align: center; */
-}
-
-.userGiphy {
-    position: absolute;
-    z-index: 1;
+  text-align: center;
 }
 
 .giphyArea {
-  position: absolute;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -38,7 +32,6 @@ p {
   padding: 50px;
   margin-top: 50px;
   margin-left: 45px;
-  z-index: 7;
 }
 
 img > p {
