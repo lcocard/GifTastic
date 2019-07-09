@@ -29,6 +29,8 @@ p {
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-around;
+  padding: 50px;
+  margin-left: 45px;
 }
 
 img > p {
