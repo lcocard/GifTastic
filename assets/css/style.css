@@ -42,6 +42,18 @@ img > p {
   color: hsl(240, 3%, 6%);
 }
 
+.gifDiv {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #ffffff;
+  box-sizing: border-box;
+  outline-style: solid;
+  outline-color: #29a745;
+  outline-width: 3px;
+  padding: 3px;
+  margin: 10px;
+}
+
 h1 {
   margin-top: -30px;
 }

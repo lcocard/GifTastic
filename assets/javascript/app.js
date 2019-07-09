@@ -84,6 +84,7 @@ $(document).ready(function () {
             // Generating a div for each gif and adding rating, still and animated attributes
             for (var i = 0; i < gifs.length; i++) {
                 var $gifDiv = $("<div>");
+                $gifDiv.addClass("gifDiv");
                 // Get the gif rating value and store it in a variable
                 gifRating = gifs[i].rating;
                 var gifRatingUpper = gifRating.toUpperCase();
