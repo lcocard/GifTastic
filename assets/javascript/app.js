@@ -89,11 +89,22 @@ $(document).ready(function () {
                 console.log("gif rating = " + gifRating)
 
                 // Create a var to hold a <p> tag to keep the rating for the gif results,
-                // Then give it an ID in the form gifs[i] + i
+                // Then give it a class gifsRating
                 // Then set the <p> tag as the value of this 
                 $gifRatingItem = $("<p>");
                 $gifRatingItem.addClass("gifsRating");
-                $gifRatingItem.text("Rating = " + gifRating);
+                $gifRatingItem.text("Rating: " + gifRating);
+
+                // Get the gif title value and store it in a variable
+                gifTitle = gifs[i].title;
+                console.log("gif title = " + gifTitle)
+
+                // Create a var to hold a <p> tag to keep the title for the gif results,
+                // Then give it a class gifsTitle
+                // Then set the <p> tag as the value of this 
+                $gifTitleItem = $("<p>");
+                $gifTitleItem.addClass("gifsTitle");
+                $gifTitleItem.text("Title: " + gifTitle);
 
                 // Create a variable to hold an <img> for the gifs resulted from the search
                 // Add src, data-still, data-animate and data-state attributes and "gifs" class
@@ -103,9 +114,11 @@ $(document).ready(function () {
                 $gifIMG.attr("data-still", gifs[i].images.fixed_height_still.url);
                 $gifIMG.attr("data-animate", gifs[i].images.fixed_height.url);
                 $gifIMG.attr("data-state", "still");
+                $gifIMG.attr("gifTitle", gifs[i].title);
                 $gifIMG.attr("ID", "gif");
                 $gifDiv = $gifDiv.append($gifIMG);
                 $gifDiv.prepend($gifRatingItem);
+                $gifDiv.prepend($gifTitleItem);
                 $(".giphyArea").prepend($gifDiv);
 
                 // Toggle state animated/still images

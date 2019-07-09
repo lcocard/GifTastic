@@ -18,7 +18,8 @@ p {
   color: #e6ecff;
 }
 
-.gifsRating {
+.gifsRating,
+.gifsTitle {
   margin-bottom: 4px;
   color: hsl(240, 3%, 6%);
   text-align: center;
