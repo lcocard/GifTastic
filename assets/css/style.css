@@ -24,13 +24,21 @@ p {
   text-align: center; */
 }
 
+.userGiphy {
+    position: absolute;
+    z-index: 1;
+}
+
 .giphyArea {
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-around;
   padding: 50px;
+  margin-top: 50px;
   margin-left: 45px;
+  z-index: 7;
 }
 
 img > p {
