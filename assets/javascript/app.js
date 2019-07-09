@@ -20,6 +20,8 @@ var b_topics = "";
 var $topicsItem;
 var $buttonsRow;
 var new_topics = "";
+var random = Math.floor(Math.random() * 25) + 1;
+console.log("random1 = " + random);
 
 /* ************************************************************************* */
 /* *********************** Generate the buttons **************************** */
@@ -68,7 +70,9 @@ $(document).ready(function () {
     $(".buttonArea").on("click", ".btn", function (event) {
         var this_city = $(this).val();
         console.log("this_city = " + this_city);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this_city + "&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10&rating=pg";
+        random = random + 10;
+        console.log("random2 = " + random);
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this_city + "&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10&rating=pg&offset=" + random + "";
 
         $.ajax({
             url: queryURL,
@@ -119,6 +123,8 @@ $(document).ready(function () {
 
                 });
 
+                var random = Math.floor(Math.random() * 9) + 1;
+                console.log("random3 = " + random);
             }
         });
 
