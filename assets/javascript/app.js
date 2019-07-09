@@ -86,14 +86,15 @@ $(document).ready(function () {
                 var $gifDiv = $("<div>");
                 // Get the gif rating value and store it in a variable
                 gifRating = gifs[i].rating;
-                console.log("gif rating = " + gifRating)
+                var gifRatingUpper = gifRating.toUpperCase();
+                console.log("gif rating = " + gifRatingUpper)
 
                 // Create a var to hold a <p> tag to keep the rating for the gif results,
                 // Then give it a class gifsRating
                 // Then set the <p> tag as the value of this 
                 $gifRatingItem = $("<p>");
                 $gifRatingItem.addClass("gifsRating");
-                $gifRatingItem.text("Rating: " + gifRating);
+                $gifRatingItem.text("Rating: " + gifRatingUpper);
 
                 // Get the gif title value and store it in a variable
                 gifTitle = gifs[i].title;
