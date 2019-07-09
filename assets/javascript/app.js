@@ -10,7 +10,7 @@ var topics = [
     "Halifax",
     "Regina",
     "Winnipeg",
-    "Saskatoon",
+    "North Bay",
     "Sudbury",
     "Windsor",
     "Ottawa",
