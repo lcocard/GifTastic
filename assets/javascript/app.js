@@ -103,22 +103,22 @@ $(document).ready(function () {
                 $gifIMG.attr("data-still", gifs[i].images.fixed_height_still.url);
                 $gifIMG.attr("data-animate", gifs[i].images.fixed_height.url);
                 $gifIMG.attr("data-state", "still");
-                $gifIMG.addClass("gifs");
+                $gifIMG.attr("ID", "gif");
                 $gifDiv = $gifDiv.append($gifIMG);
                 $gifDiv.prepend($gifRatingItem);
                 $(".giphyArea").prepend($gifDiv);
 
                 // Toggle state animated/still images
 
-                $(".gifs").on("click", function (event) {
-                    //event.preventDefault();
+                $("#gif").on("click", function (event) {
+                    event.preventDefault();
                     var gifsState = $(this).attr("data-state");
                     if (gifsState === "still") {
-                        $(this).attr("src", $(this).attr("data-animate"));
                         $(this).attr("data-state", "animate");
+                        $(this).attr("src", $(this).attr("data-animate"));
                     } else {
-                        $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
+                        $(this).attr("src", $(this).attr("data-still"));
                     }
 
                 });

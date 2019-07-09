@@ -27,6 +27,8 @@ p {
 .giphyArea {
   display: flex;
   flex-wrap: wrap;
+  /*display: grid;
+  grid-auto-flow: dense;*/
   align-items: stretch;
   justify-content: space-around;
   padding: 50px;
