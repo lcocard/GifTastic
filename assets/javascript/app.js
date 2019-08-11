@@ -1,8 +1,5 @@
 /* *********************** GifTastic - app.js ****************** */
 
-require('dotenv').config();
-api_key = process.env.API_KEY;
-
 var topics = [
     "Toronto",
     "Montreal",
@@ -74,7 +71,7 @@ $(document).ready(function () {
         console.log("this_city = " + this_city);
         random = random + 10;
         console.log("random2 = " + random);
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this_city + "&api_key=${api_key}&limit=10&rating=pg&offset=" + random + "";
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + this_city + '&api_key=3KY5sb3wfLdn3RUY2623lLJC7WQ4qiJA&limit=10&rating=pg&offset=' + random + '';
 
         $.ajax({
             url: queryURL,
